@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Portfolio</title>
+    
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin: 2em auto;
+            padding: 30px;
+            background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1),
+                        0 0 20px rgba(1, 118, 243, 0.5),
+                        0 0 40px rgba(0, 123, 255, 0.3);
+            width: 90%;
+            max-width: 600px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contact-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-section h1 {
+            margin-bottom: 1em;
+            color: navy;
+            font-size: 1.8em;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .contact-section p {
+            margin-bottom: 1.5em;
+            color: #596e79;
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            text-align: left;
+        }
+
+        .contact-form label {
+            color: navy;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background-color: #4c5baf;
+            color: white;
+            border: none;
+            padding: 0.8em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        .thank-you-message {
+            display: none;
+            color: green;
+            font-weight: bold;
+            margin-top: 1em;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .toggle-button {
+            background-color: #4c5baf;
+            color: white;
+            border: none;
+            padding: 0.8em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 1em;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .toggle-button:hover {
+            background-color: #45a049;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background-color: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .modal-header {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            color: navy;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .modal ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal li {
+            margin: 0.5em 0;
+            font-size: 1em;
+            color: #007BFF;
+        }
+
+        .modal li a {
+            text-decoration: none;
+        }
+
+        .modal li a:hover {
+            text-decoration: underline;
+        }
+
+        .modal .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 1.5em 1em;
+            }
+
+            .contact-section h1 {
+                font-size: 1.5em;
+            }
+
+            .contact-section p {
+                font-size: 0.9em;
+            }
+
+            .modal-header {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 1em;
+            }
+
+            .contact-section h1 {
+                font-size: 1.3em;
+            }
+
+            .modal {
+                padding: 1.5em;
+            }
+
+            .modal-header {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <h1>Contact Me</h1>
+        <p><b>I’ll get back to you as soon as possible!</b></p>
+        <form class="contact-form" id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter Your Name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter Your Email">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <p class="thank-you-message" id="thankYouMessage">Great! Your information has been submitted. Feel free to reach out.</p>
+        <button class="toggle-button" onclick="openModal()">Meet Virtually</button>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+    <div class="modal" id="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-header">Contact Directly</div>
+        <ul>
+            <li><ion-icon name="mail"></ion-icon> <a href="mailto:nagaakashduddupudi1712@gmail.com">nagaakashduddupudi1712@gmail.com</a></li>
+            <li><ion-icon name="call"></ion-icon> <a href="tel:+918096788628">+91 8096788628</a></li>
+            <li><ion-icon name="logo-linkedin"></ion-icon> <a href="https://www.linkedin.com/in/naga-akash-duddupudi-b16340267/" target="_blank">LinkedIn</a></li>
+            <li><ion-icon name="logo-github"></ion-icon> <a href="https://github.com/akashgitdev" target="_blank">GitHub</a></li>
+            <li><ion-icon name="logo-instagram"></ion-icon> <a href="https://www.instagram.com/aakash.duddupudi/" target="_blank">Instagram</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // Show "Thank You" message on form submit
+        const contactForm = document.getElementById('contactForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            thankYouMessage.style.display = 'block';
+            contactForm.reset();
+        });
+
+        // Open Modal
+        function openModal() {
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
+

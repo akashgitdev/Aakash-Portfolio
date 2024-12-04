@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Developer Portfolio</title>
+    <style>
+        /* General Reset */
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5vh 2vw;
+    gap: 5px; /* Reduced gap between content and image */
+    height: 100vh;
+}
+
+/* Adjust layout for larger screens */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 15px; /* Slightly larger gap for wider screens */
+    }
+}
+
+.content {
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 5px; /* Reduced margin below the content */
+}
+
+.content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px; /* Adjusted margin for better spacing */
+}
+
+.content p {
+    font-size: 1.2rem;
+    color: #975a5e;
+    margin-bottom: 5px; /* Reduced margin */
+    max-width: 500px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.image-container {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    background-image: url(home.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+@media (min-width: 768px) {
+    .image-container {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Adjust text and image size for small devices */
+@media (max-width: 576px) {
+    .content h2 {
+        font-size: 1.8rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    .image-container {
+        width: 200px;
+        height: 200px;
+        
+        
+    }
+}
+
+#typingEffect {
+    color: #5f6caf;
+}
+
+#descriptionText {
+    font-size: 1.3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Text Content -->
+        <div class="content">
+            <h2 id="typingEffect"></h2>
+            <p id="descriptionText">
+                - Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+            </p>
+        </div>
+
+        <!-- Image -->
+        <div class="image-container" id="imageContainer">
+          
+        </div>
+    </div>
+
+    <script>
+        const text = "Hi, I’m Naga Akash, Welcome To My Creative World!";
+        const typingEffectElement = document.getElementById("typingEffect");
+        const descriptionText = document.getElementById("descriptionText");
+        let index = 0;
+
+        function typeLetterByLetter() {
+            if (index < text.length) {
+                typingEffectElement.textContent += text[index];
+                index++;
+                setTimeout(typeLetterByLetter, 50);
+            } else {
+                descriptionText.style.opacity = 1; // Show description text after typing effect completes
+            }
+        }
+
+        // Start the typing effect
+        typeLetterByLetter();
+
+        // Add hover effect for image
+        const imageContainer = document.getElementById('imageContainer');
+
+        imageContainer.addEventListener('mouseover', () => {
+            const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            imageContainer.style.boxShadow = `0 0 30px 20px ${randomColor}`;
+        });
+
+        imageContainer.addEventListener('mouseout', () => {
+            imageContainer.style.boxShadow = '';
+        });
+    </script>
+</body>
+</html>

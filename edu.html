@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Portfolio</title>
+    <!-- Include Ionicons for the icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.6.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.6.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header Style */
+        header {
+            background-color: #393e46;
+            color: #d9dad7;
+            text-align: center;
+            padding: 50px 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            box-shadow: 0px 0px 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        /* Container for education details */
+        .edu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Education Card Styling */
+        .edu-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #323643;
+            padding: 20px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .edu-card .info {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .edu-card .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #d9dad7;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .edu-card .value {
+            color: #2e94b9;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        /* Responsive Layout */
+        @media (min-width: 768px) {
+            .edu-card {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .edu-card .circle {
+                margin-right: 20px;
+            }
+
+            .edu-card .info {
+                flex: 1;
+            }
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            background-color: #005689;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .icon:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        /* School icon (Book) */
+        .school-icon::before {
+            content: "📚";  /* Unicode book emoji */
+            font-size: 30px;
+        }
+
+        /* Intermediate icon (Ribbon) */
+        .intermediate-icon::before {
+            content: "🏅";  /* Unicode ribbon emoji */
+            font-size: 30px;
+        }
+
+        /* University icon (Graduation Cap) */
+        .university-icon::before {
+            content: "🎓";  /* Unicode graduation cap emoji */
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Academic Qualifications</h1>
+</header>
+
+<div class="edu-container">
+    <!-- Education Card 1 -->
+    <div id="edu1" class="edu-card">
+        <div class="circle">
+            <div class="icon university-icon"></div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>B.Tech</strong></div>
+            <div class="value">Bachelor Degree in Computer Science Engineering - IoT</div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>University</strong></div>
+            <div class="value">Jawaharlal Nehru Technological University, Anantapur - [2020-2024]</div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>Percentage</strong></div>
+            <div class="value">75%</div>
+        </div>
+    </div>
+
+    <!-- Education Card 2 -->
+    <div id="edu2" class="edu-card">
+        <div class="circle">
+            <div class="icon intermediate-icon"></div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>Intermediate</strong></div>
+            <div class="value">Board of Intermediate Education - MPC</div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>Institution</strong></div>
+            <div class="value">Sree Chaithanya Junior College-[2020]</div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>Percentage</strong></div>
+            <div class="value">84%</div>
+        </div>
+    </div>
+
+    <!-- Education Card 3 -->
+    <div id="edu3" class="edu-card">
+        <div class="circle">
+            <div class="icon school-icon"></div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>SSC</strong></div>
+            <div class="value">Secondary Board of Education</div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>Institution</strong></div>
+            <div class="value">Bhashyam Public School-[2018]</div>
+        </div>
+        <div class="info">
+            <div class="label"><strong>Percentage</strong></div>
+            <div class="value">92%</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to generate a random color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Add hover effect with random color
+    const eduCards = document.querySelectorAll('.edu-card');
+    eduCards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            const randomColor = getRandomColor();
+            card.style.boxShadow = `0 4px 15px ${randomColor}`;
+        });
+
+        card.addEventListener('mouseout', () => {
+            card.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Body Styles */
+  #skill-background {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(
+      circle at 24.1% 68.8%,
+      rgb(50, 50, 50) 0%,
+      rgb(0, 0, 0) 99.4%
+    );
+    color: #ffffff;
+    margin: 0;
+    height: 100vh;
+  }
+
+  /* Header Styles */
+  #skil ,header {
+    text-align: center;
+    padding: 20px;
+    background-color: #303841;
+    color: #eef2e2;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    box-shadow: 0 0 20px 5px #e7ecaecc; /* Glowing light shadow effect */
+  }
+
+  #skil, header h1 {
+    font-size: 2.5rem;
+  }
+
+  
+
+  /* Skills Section */
+  .skills-section {
+    padding: 40px 20px;
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #303841;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  /* Glow effect when hovering over a card */
+  .skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 5px #e7ecaecc; /* Glowing light shadow effect */
+  }
+
+  .skill-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+  }
+
+  .skill-card h3 {
+    font-size: 1rem;
+    color: #f5dd7b;
+    margin-bottom: 10px;
+  }
+
+  .skill-card p {
+    font-size: 1rem;
+    color: #ccd6f6;
+  }
+
+ 
+
+  @media (min-width: 769px) {
+     #skil ,header h1 {
+      font-size: 2rem;
+     
+      text-shadow: 2px 2px 5px #e7ecaecc(0, 217, 255, 0.7); 
+    }
+
+    .skill-card img {
+      width: 70px;
+      height: 70px;
+    }
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+     #skil, header h1 {
+      font-size: 2rem;
+    }
+
+    .skill-card img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  @media (max-width: 480px) {
+     #skil ,header h1 {
+      font-size: 1.8rem;
+    }
+
+    .skill-card img {
+      width: 90px;
+      height: 60px;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+    }
+  }

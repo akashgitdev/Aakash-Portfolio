@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills | Portfolio</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background: radial-gradient(
+          circle at 24.1% 68.8%,
+          rgb(50, 50, 50) 0%,
+          rgb(0, 0, 0) 99.4%
+        );
+        color: #ffffff;
+        margin: 0;
+        height: 100vh;
+      }
+
+      /* Header Styles */
+      header {
+        text-align: center;
+        padding: 20px;
+        background-color: #303841;
+        color: #eef2e2;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        box-shadow: 0 0 20px 5px #e7ecaecc; /* Glowing light shadow effect */
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        color: #ccd6f6;
+      }
+
+      /* Skills Section */
+      .skills-section {
+        padding: 40px 20px;
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .skill-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #303841;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      /* Glow effect when hovering over a card */
+      .skill-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px 5px #e7ecaecc; /* Glowing light shadow effect */
+      }
+
+      .skill-card img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+      }
+
+      .skill-card h3 {
+        font-size: 1rem;
+        color: #f5dd7b;
+        margin-bottom: 10px;
+      }
+
+      .skill-card p {
+        font-size: 1rem;
+        color: #ccd6f6;
+      }
+
+      /* Footer Styles */
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #1e293b;
+        color: #ccd6f6;
+        font-size: 0.9rem;
+      }
+      @media (min-width: 769px) {
+        header h1 {
+          font-size: 2rem;
+          text-shadow: 2px 2px 5px #e7ecaecc(0, 217, 255, 0.7); 
+        }
+
+        .skill-card img {
+          width: 70px;
+          height: 70px;
+        }
+        .skills-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          max-width: 700px;
+          margin: 0 auto;
+        }
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+
+        .skill-card img {
+          width: 70px;
+          height: 70px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.8rem;
+        }
+
+        .skill-card img {
+          width: 90px;
+          height: 60px;
+        }
+
+        .skill-card h3 {
+          font-size: 1rem;
+        }
+
+        .skill-card p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Skills</h1>
+    </header>
+
+    <section class="skills-section">
+      <div class="skills-container">
+        <!-- Skill 1 -->
+        <div class="skill-card">
+          <img src="./py.webp" alt="Python" />
+          <h3>Python</h3>
+        </div>
+        <!-- Skill 2 -->
+        <div class="skill-card">
+          <img src="./html.jpg" alt="HTML" />
+          <h3>HTML5</h3>
+        </div>
+        <!-- Skill 3 -->
+        <div class="skill-card">
+          <img src="./css.webp" alt="CSS" />
+          <h3>CSS</h3>
+        </div>
+        <!-- Skill 4 -->
+        <div class="skill-card">
+          <img src="./ls.png" alt="JavaScript" />
+          <h3>JavaScript</h3>
+        </div>
+        <!-- Skill 5 -->
+        <div class="skill-card">
+          <img src="sql.png" alt="MySQL" />
+          <h3>MySQL</h3>
+        </div>
+        <!-- Skill 6 -->
+        <div class="skill-card">
+          <img src="nod.avif" alt="Node.js" />
+          <h3>Node.js</h3>
+        </div>
+        <!-- Skill 7 -->
+        <div class="skill-card">
+          <img src="react.png" alt="React.js" />
+          <h3>React.js</h3>
+        </div>
+        <!-- Skill 8 -->
+        <div class="skill-card">
+          <img src="github.png" alt="GitHub" />
+          <h3>GitHub</h3>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

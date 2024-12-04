@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Layout</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="./contact.css"> -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.6.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <!-- <link rel="stylesheet" href="skills.css"> -->
+
+    <style>
+      /* *::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+ */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        
+      }
+
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      /* Sections */
+      section {
+        min-height: 100vh; /* Prevents overlap by ensuring each section covers full viewport */
+        padding-top: 70px; /* Adjusts for navbar height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      /* Section Background Colors for Visibility */
+      #home {
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+        }
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 5vh 2vw;
+          gap: 5px; /* Reduced gap between content and image */
+          height: 100vh;
+        }
+
+        /* Adjust layout for larger screens */
+        @media (min-width: 768px) {
+          .container {
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 15px; /* Slightly larger gap for wider screens */
+          }
+        }
+
+        .content {
+          max-width: 500px;
+          text-align: center;
+          margin-bottom: 5px; /* Reduced margin below the content */
+        }
+
+        .content h2 {
+          font-size: 2rem;
+          margin-bottom: 10px; /* Adjusted margin for better spacing */
+        }
+
+        .content p {
+          font-size: 1.2rem;
+          color: #975a5e;
+          margin-bottom: 5px; /* Reduced margin */
+          max-width: 500px;
+          opacity: 0;
+          transition: opacity 2s ease-in-out;
+        }
+
+        .image-container {
+          width: 250px;
+          height: 250px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          transition: box-shadow 0.3s ease;
+          background-image: url("nani.jpg");
+          background-size: cover;
+          background-position: top;
+
+          background-position: center;
+        }
+
+        @media (min-width: 768px) {
+          .image-container {
+            width: 300px;
+            height: 300px;
+          }
+        }
+
+        .image-container img {
+          width: 100%;
+          height: auto;
+          transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+          transform: scale(1.1);
+        }
+
+        /* Adjust text and image size for small devices */
+        @media (max-width: 576px) {
+          .content h2 {
+            font-size: 1.8rem;
+          }
+
+          .content p {
+            font-size: 1rem;
+          }
+
+          .image-container {
+            width: 200px;
+            height: 200px;
+          }
+        }
+
+        #typingEffect {
+          color: #5f6caf;
+        }
+
+        #descriptionText {
+          font-size: 1.3rem;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+        }
+        background-color: #f8f9fa;
+      }
+
+      #academics {
+        font-family: "Arial", sans-serif;
+        /* background: radial-gradient(
+          circle at 10% 20%,
+          rgb(0, 0, 0) 0%,
+          rgb(64, 64, 64) 90.2%
+        ); */
+        min-height: 100vh; /* Changed from height to min-height */
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        display: flex; /* Ensures content fills the screen */
+        flex-direction: column;
+      }
+      /* #academics {
+        margin-top: 6rem;
+        padding-top: -3rem;
+        scroll-margin-top: 4rem;
+      } */
+      strong {
+        color: white;
+      }
+      .value {
+        color: navy;
+      }
+
+      /* Header Style */
+      header {
+        background-color: #dae6fa;
+        width: 100vw;
+        color:navy;
+        text-align: center;
+        padding: 50px 20px;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        box-shadow: 0px 0px 20px;
+        margin: 0;
+        height: 10vh;
+      }
+
+      /* Container for education details */
+      .edu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px;
+        /* max-width: 1000px; */
+        margin: auto;
+        flex-grow: 1; /* Ensures it takes up remaining space */
+      }
+
+      /* Education Card Styling */
+      .edu-card {
+        display: flex;
+        flex-direction: column;
+        /* background-color: #323643; */
+        padding: 20px;
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        animation: fadeIn 1s ease forwards;
+        transition: box-shadow 0.3s ease;
+      }
+
+      /* Animation Keyframes */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Layout */
+      @media (min-width: 768px) {
+        .edu-card {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .edu-card .circle {
+          margin-right: 20px;
+        }
+
+        .edu-card .info {
+          flex: 1;
+        }
+      }
+
+      @media (max-width: 576px) {
+        header h1 {
+          font-size: 24px; /* Slightly smaller font size for small screens */
+          margin-top: 0; /* Add margin to make it less cramped */
+        }
+
+        .edu-container {
+          padding: 15px; /* Slightly reduced padding to fit small screens better */
+          display: flex;
+          flex-direction: column; /* Ensure it's stacked vertically on small screens */
+          align-items: center; /* Center content */
+        }
+
+        .edu-card {
+          padding: 12px; /* Reduced padding to save space */
+          margin-bottom: 15px; /* Add margin between cards */
+          width: 100%; /* Ensure cards use full width */
+        }
+
+        .edu-card .label {
+          font-size: 1rem; /* Use rem units for scalability */
+        }
+
+        .edu-card .value {
+          font-size: 1.1rem;
+        }
+
+        /* Optional: Adjust icon size for small screens */
+        .icon {
+          width: 50px; /* Make icon smaller */
+          height: 50px;
+          font-size: 20px; /* Adjust icon font size */
+        }
+      }
+
+      .icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        background-color: #005689;
+        color: white;
+        text-align: center;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      .icon:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+      }
+
+      .school-icon::before {
+        content: "📚";
+        font-size: 30px;
+      }
+
+      .intermediate-icon::before {
+        content: "🏅";
+        font-size: 30px;
+      }
+
+      .university-icon::before {
+        content: "🎓";
+        font-size: 30px;
+      }
+
+  /* General Styles */
+#skills {
+  font-family: Arial, sans-serif;
+  /* background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  ); */
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Header Styles */
+#skills-header {
+  text-align: center;
+  padding: 10px; /* Add minimal padding */
+  background-color: #303841;
+  color: #eef2e2;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  box-shadow: 0 0 20px 5px #e7ecaecc;
+  width: 100vh;/* Full width for proper alignment */
+ height: 10vh;
+}
+
+#skills-title {
+  font-size: 2.5rem;
+  margin: 0; /* Remove default margin */
+}
+
+/* Skills Container Styles */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* Skill Card Styles */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 5px #191918cc;
+}
+
+.skill-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+.skill-card h3 {
+  font-size: 1rem;
+  color: #7e75ff;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 1rem;
+  color: #ccd6f6;
+}
+
+/* Media Queries */
+/* Large Screens (Desktops and Laptops) */
+@media (min-width: 1024px) {
+  .skills-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  .skill-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  #skills-title {
+    font-size: 3rem;
+  }
+}
+
+/* Medium Screens (Tablets and Small Laptops) */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .skill-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  #skills-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Small Screens (Phones and Smaller Tablets) */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .skill-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  #skills-title {
+    font-size: 2rem;
+  }
+}
+
+/* Extra Small Screens (Phones in Portrait Mode) */
+@media (max-width: 480px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .skill-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  #skills-title {
+    font-size: 1.8rem;
+  }
+
+  .skill-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .skill-card p {
+    font-size: 0.8rem;
+  }
+  #skills-header #skills-title{
+    font-size: 1rem;
+  }
+}
+
+      
+
+      #experience {
+
+
+
+        font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* Ensures consistent background */
+         min-height: 100%;
+         height: auto;
+         
+     
+    }
+li{
+  color: #222831;
+}
+    /* Header Section */
+    .head-back {
+      background-color: #222831;
+      color: white;
+      height:10vh;
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    .head-back h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Portfolio Section */
+    .portfolio-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #3583d1;
+    }
+
+    .card {
+      
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(236, 237, 239, 0.5), 0 0 30px rgba(98, 99, 101, 0.3);
+    }
+
+    .card-img-top {
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .card-body {
+      padding: 10px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #0551a3;
+    }
+
+    .card-text {
+      margin-bottom: 10px;
+      line-height: 1.4;
+      font-size: 0.9rem;
+     
+    }
+
+    .card-text b {
+      color: #0551a3;
+    }
+
+    .btn-container {
+      text-align: center;
+    }
+
+    .btn {
+      margin: 2px;
+      padding: 5px 10px;
+      font-size: 0.85rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Reduce gaps between rows and columns */
+    .row.g-4 {
+      row-gap: 20px;
+    }
+
+    .col-lg-4,
+    .col-md-6 {
+      margin-bottom: 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .card-img-top {
+        height: 140px;
+      }
+
+      .portfolio-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .portfolio-title {
+        font-size: 1.5rem;
+      }
+
+      .card-body {
+        padding: 8px;
+      }
+     
+    }
+      
+#projects{
+  
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    /* Header Section */
+    header {
+      background-color: #222831;
+      color: white;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Portfolio Section */
+    .portfolio-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #343a40;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      background-color: #fff;
+      padding: 15px;
+    }
+
+    /* Light Effect on Hover */
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(24, 24, 24, 0.5), 0 0 40px rgba(0, 123, 255, 0.3);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .card-body {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .card-text b {
+      color: #007bff;
+    }
+
+    .btn-container {
+      text-align: center;
+    }
+
+    .btn {
+      margin: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .card-img-top {
+        height: 180px;
+      }
+
+      .portfolio-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .portfolio-title {
+        font-size: 1.5rem;
+      }
+    }
+
+      /* #achievements {
+
+        
+      } */
+
+       /* Base styles for #contact */
+
+
+       #contact {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  color: navy;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.modal {
+        padding: 1.5em;
+        text-align: center;
+        height: 25vh;
+        
+       
+
+    }
+    *::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+    @media (max-width: 480px) {
+        .modal-header {
+            font-size: 1.2em;
+        }
+
+        .modal {
+            padding: 1em;
+        }
+    }
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background-color: #4c5baf;
+  color: white;
+  border: none;
+  padding: 0.8em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.thank-you-message {
+  display: none;
+  color: green;
+  font-weight: bold;
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.modal-header{
+  color: green;
+}
+.model, span{
+  size: 30px;
+}
+.modal{
+color: orangered;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 10px;
+  }
+
+  .thank-you-message {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 1em;
+  }
+
+  .thank-you-message {
+    font-size: 0.9em;
+  }
+}
+
+      /* Responsive Typography */
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">NAGA AKASH DUDDUPUDI</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#academics">Academics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#achievements">Achievements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sections -->
+    <main>
+      <section id="home">
+        <div class="container">
+          <!-- Text Content -->
+          <div class="content">
+            <h2 id="typingEffect"></h2>
+            <p id="descriptionText">
+              - Any fool can write code that a computer can understand. Good
+              programmers write code that humans can understand.
+            </p>
+          </div>
+
+          <!-- Image -->
+          <div class="image-container" id="imageContainer"></div>
+        </div>
+
+        <script>
+          const text = "Hi, I’m Naga Akash, Welcome To My Creative World!";
+          const typingEffectElement = document.getElementById("typingEffect");
+          const descriptionText = document.getElementById("descriptionText");
+          let index = 0;
+
+          function typeLetterByLetter() {
+            if (index < text.length) {
+              typingEffectElement.textContent += text[index];
+              index++;
+              setTimeout(typeLetterByLetter, 50);
+            } else {
+              descriptionText.style.opacity = 1; // Show description text after typing effect completes
+            }
+          }
+
+          // Start the typing effect
+          typeLetterByLetter();
+
+          // Add hover effect for image
+          const imageContainer = document.getElementById("imageContainer");
+
+          imageContainer.addEventListener("mouseover", () => {
+            const randomColor = `rgb(${Math.floor(
+              Math.random() * 256
+            )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
+              Math.random() * 256
+            )})`;
+            imageContainer.style.boxShadow = `0 0 30px 20px ${randomColor}`;
+          });
+
+          imageContainer.addEventListener("mouseout", () => {
+            imageContainer.style.boxShadow = "";
+          });
+        </script>
+      </section>
+      <section id="academics">
+        <div>
+        <header>
+          <h1>Academic Qualifications</h1>
+        </header></div>
+
+        <div class="edu-container">
+          <!-- Education Card 1 -->
+          <div id="edu1" class="edu-card">
+            <div class="circle">
+              <div class="icon university-icon"></div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>B.Tech</strong></div>
+              <div class="value">
+                Bachelor Degree in Computer Science Engineering - IoT
+              </div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>University</strong></div>
+              <div class="value">
+                Jawaharlal Nehru Technological University, Anantapur -
+                [2020-2024]
+              </div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>Percentage</strong></div>
+              <div class="value">75%</div>
+            </div>
+          </div>
+
+          <!-- Education Card 2 -->
+          <div id="edu2" class="edu-card">
+            <div class="circle">
+              <div class="icon intermediate-icon"></div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>Intermediate</strong></div>
+              <div class="value">Board of Intermediate Education - MPC</div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>Institution</strong></div>
+              <div class="value">Sree Chaithanya Junior College-[2020]</div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>Percentage</strong></div>
+              <div class="value">84%</div>
+            </div>
+          </div>
+
+          <!-- Education Card 3 -->
+          <div id="edu3" class="edu-card">
+            <div class="circle">
+              <div class="icon school-icon"></div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>SSC</strong></div>
+              <div class="value">Secondary Board of Education</div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>Institution</strong></div>
+              <div class="value">Bhashyam Public School-[2018]</div>
+            </div>
+            <div class="info">
+              <div class="label"><strong>Percentage</strong></div>
+              <div class="value">92%</div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          // Function to generate a random color
+          function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+              color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+          }
+
+          // Add hover effect with random color
+          const eduCards = document.querySelectorAll(".edu-card");
+          eduCards.forEach((card) => {
+            card.addEventListener("mouseover", () => {
+              const randomColor = getRandomColor();
+              card.style.boxShadow = `0 4px 15px ${randomColor}`;
+            });
+
+            card.addEventListener("mouseout", () => {
+              card.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)";
+            });
+          });
+        </script>
+      </section>
+      <section id="skills">
+        
+         <!-- <header id="skills-header">
+           <h1 id="skills-title">My Skills</h1>
+          </header> -->
+        <div class="skills-container">
+          <div class="skill-card">
+            <img src="./py.webp" alt="Python" />
+            <h3>Python</h3>
+          </div>
+          <div class="skill-card">
+            <img src="./html.jpg" alt="HTML" />
+            <h3>HTML5</h3>
+          </div>
+          <div class="skill-card">
+            <img src="./css.webp" alt="CSS" />
+            <h3>CSS</h3>
+          </div>
+          <div class="skill-card">
+            <img src="./ls.png" alt="JavaScript" />
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-card">
+            <img src="sql.png" alt="MySQL" />
+            <h3>MySQL</h3>
+          </div>
+          <div class="skill-card">
+            <img src="nod.avif" alt="Node.js" />
+            <h3>Node.js</h3>
+          </div>
+          <div class="skill-card">
+            <img src="react.png" alt="React.js" />
+            <h3>React.js</h3>
+          </div>
+          <div class="skill-card">
+            <img src="github.png" alt="GitHub" />
+            <h3>GitHub</h3>
+          </div>
+        </div>
+      </div>
+      </section>
+      <section id="experience">
+        <!-- <div class="head-back">
+          <h1>Experience</h1>
+        </div> -->
+      
+        <!-- Portfolio Section -->
+        <div class="container mt-4">
+          <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <img src="./web.webp" class="card-img-top" alt="Automatic Movable Road Divider">
+                <div class="card-body">
+                  <h5 class="card-title">Web Development Intern</h5>
+                  <h6>Teachnook Internship</h6>
+                  <p class="card-text"><b>Duration:</b> May2023-Jun2023</p>
+                  <p class="card-text"><b>Location:</b> Banglore, Karnataka, India</p>
+                  <p class="card-text"><b>Work Domain:</b>
+                    <ul>
+                      <li>Worked on User Interface using JavaScript, HTML, CSS & React framework.</li>
+                      <li>Developed a responsive web application as part of a collaborative team project.</li>
+                    </ul>
+                  </p>
+                  <p class="card-text"><b>Skills:</b> HTML5, CSS, JavaScript, Bootstrap, React, MySQL, Node.js</p>
+                  <div class="btn-container">
+                    <a href="https://drive.google.com/file/d/1xz9ad4Qb6RcL5jJpEFeRuRlSmYlBUG7u/view?usp=sharing" target="_blank" class="btn btn-success">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <img src="./data.jpg" class="card-img-top" alt="Hostel Management">
+                <div class="card-body">
+                  <h5 class="card-title">Software Engineer Intern</h5> 
+                  <h6>Codegnan Internship</h6>
+                  <p class="card-text"><b>Duration:</b> Feb2024-May2024</p>
+                  <p class="card-text"><b>Location:</b> Vijaywada,Andhra Pradesh, India</p>
+                  <p class="card-text"><b>Work Domain:</b>
+                    <ul>
+                      <li>Worked on Data Analysis to process and analyze large datasets.</li>
+                      <li>Utilized tools like MS Excel, Python, Pandas, Matplotlib for data visualization & reporting.</li>
+                    </ul>
+                  </p>
+                  <p class="card-text"><b>Skills:</b> Data Analysis, Python, Data Visualization, Tableau</p>
+                  <div class="btn-container">
+                    <a href="https://drive.google.com/file/d/1wKfYEcsrxMm9n6cC7d6ONJYQg4SSzby-/view?usp=sharing" target="_blank" class="btn btn-success">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="projects">
+        
+        <!-- <header class="text-center py-4">
+          <h1>Experience</h1>
+        </header> -->
+      
+        <!-- Portfolio Section -->
+        <div class="container mt-5">
+          <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <img src="./rd.jpg" class="card-img-top" alt="Automatic Movable Road Divider">
+                <div class="card-body">
+                  <h5 class="card-title">Automatic Movable Road Divider</h5>
+                  <p class="card-text"><b>Aim:</b> This system detects traffic flow and autonomously repositions dividers to reduce congestion during peak hours.</p>
+                  <p class="card-text"><b>Skills & Applications:</b> Arduino IDE, Embedded C, Blynk</p>
+                  <div class="btn-container">
+                    <a href="https://drive.google.com/file/d/1KYJejCUuGjPcvMoeKVOZ6OeqKcby4Snn/view?usp=sharing" target="_blank" class="btn btn-primary">Live View</a>
+                    <a href="https://drive.google.com/file/d/1b5yQ0rmpGN3DKE66_iEa6Iej_qVHvsrq/view?usp=sharing" target="_blank" class="btn btn-secondary">Publication</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <img src="./hostel.jpg" class="card-img-top" alt="Hostel Management">
+                <div class="card-body">
+                  <h5 class="card-title">Hostel Management</h5>
+                  <p class="card-text"><b>Aim:</b> A web application for hostel management, offering seamless room allocation and user management features.</p>
+                  <p class="card-text"><b>Skills:</b> HTML5, CSS, Bootstrap, JavaScript</p>
+                  <div class="btn-container">
+                    <a href="https://akashgitdev.github.io/Hostel-management/" target="_blank" class="btn btn-primary">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <img src="./food.jpg" class="card-img-top" alt="Food Website">
+                <div class="card-body">
+                  <h5 class="card-title">Food Website</h5>
+                  <p class="card-text"><b>Aim:</b> A dynamic food website showcasing a variety of dishes with user-friendly navigation.</p>
+                  <p class="card-text"><b>Skills:</b> HTML5, CSS, Bootstrap, JavaScript, Node.js, React.js</p>
+                  <div class="btn-container">
+                    <a href="https://akashgitdev.github.io/food/" target="_blank" class="btn btn-primary">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+              </section>
+      <section id="achievements">
+        <!-- <div class="head-back">
+          <h1>Achievements</h1>
+        </div> -->
+      
+        <!-- Achievements Section -->
+        <div class="container">
+          <div class="row g-4">
+      
+      
+      
+            
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                 
+                  <h5 class="card-title" class="title1">Introduction to Industrial 4.0 and Industrial</h5>
+                  <p class="card-text"class="text1"><b>Issued By:</b> NPTEL,IIT kharagpur</p>
+                  <p class="card-text"class="text1"><b>Roll No:</b>NPTEL24CS34S663700946</p>
+                  <p class="card-text"class="text1"><b>Score:</b>70%</p>
+                  <div class="btn-container"class="button1">
+                    <a href="https://drive.google.com/file/d/15W6uKy0DgC5Q8knWFNjmb3Ll1Jhorxkj/view?usp=sharing" target="_blank" class="btn btn-danger">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+      
+      
+      
+            <!-- Achievement 1 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title" class="title1">Cloud Computing</h5>
+                  <p class="card-text" class="text1"><b>Issued By:</b> NPTEL,IIT kharagpur</p>
+                  <p class="card-text"class="text1"><b>Roll No:</b>NPTEL24CS17S163700050</p>
+                  <p class="card-text"class="text1"><b>Score:</b>61%</p>
+                  <div class="btn-container"class="button1">
+                    <a href="https://drive.google.com/file/d/1-UvkF9JCCnvDiTqk5TCFAR6PdRykXdNO/view?usp=sharing" target="_blank" class="btn btn-danger">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Achievement 2 -->
+      
+            <!-- Achievement 3 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title" class="title1">Cyber Security Virual Internship</h5>
+                  <p class="card-text"class="text1"><b>Issued By:</b> EduSkills</p>
+                  <p class="card-text"class="text1"><b>Student ID:</b>STD6614e658293921712645720</p>
+                  <p class="card-text"class="text1"><b>Duaration:</b>10 Weeks</p>
+                  <div class="btn-container"class="button1">
+                    <a href="https://drive.google.com/file/d/11MxlKevoEuuVxunymp2L-XUiGTbIKW06/view?usp=sharing" target="_blank" class="btn btn-danger">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-lg-4 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                
+                  <h5 class="card-title" class="title1">Python Programing</h5>
+                  <p class="card-text"class="text1"><b>Issued By:</b>Besant Technologies,Banglore</p>
+                  <p class="card-text"class="text1"><b>Cert Id:</b>BTFT 36364</p>
+                
+                  <div class="btn-container" class="button1">
+                    <a href="https://drive.google.com/file/d/1nxTm-2nqhhx7te0rRIjWxw-gF2o-nyjz/view?usp=sharing" target="_blank" class="btn btn-danger">Live View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            
+      
+          </div>
+        </div>
+
+
+
+
+
+      </section>
+      
+      <section id="contact">
+        <form class="contact-form" id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter Your Name">
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter Your Email">
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
+    
+            <button type="submit">Send Message</button>
+        </form>
+    
+        <!-- Modal for Thank You Message -->
+        <div class="modal-overlay" id="thankYouModalOverlay" onclick="closeThankYouModal()"></div>
+        <div class="modal" id="thankYouModal">
+            <span class="close" onclick="closeThankYouModal()">&times;</span>
+            <div class="modal-header">Submission Successful</div>
+            <p>Your information has been submitted. Feel free to reach out for any queries!</p>
+        </div>
+    
+        <!-- Modal for Direct Contact -->
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+        <div class="modal" id="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">Contact Directly</div>
+            <ul>
+                <li><a href="mailto:nagaakashduddupudi1712@gmail.com">Email: nagaakashduddupudi1712@gmail.com</a></li>
+                <li><a href="tel:+918096788628">Phone: +91 8096788628</a></li>
+                <li><a href="https://www.linkedin.com/in/naga-akash-duddupudi-b16340267/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/akashgitdev" target="_blank">GitHub</a></li>
+                <li><a href="https://www.instagram.com/aakash.duddupudi/" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <script>
+        // Show "Thank You" message in a modal on form submit
+        const contactForm = document.getElementById('contactForm');
+        const thankYouModalOverlay = document.getElementById('thankYouModalOverlay');
+        const thankYouModal = document.getElementById('thankYouModal');
+    
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            thankYouModalOverlay.style.display = 'block';
+            thankYouModal.style.display = 'block';
+            contactForm.reset();
+        });
+    
+        function closeThankYouModal() {
+            thankYouModalOverlay.style.display = 'none';
+            thankYouModal.style.display = 'none';
+        }
+    
+        // Open and Close Direct Contact Modal
+        function openModal() {
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.getElementById('modal').style.display = 'block';
+        }
+    
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+    </section>
+    
+      
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
